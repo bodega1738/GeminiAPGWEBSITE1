@@ -56,14 +56,14 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-800"
     >
       {/* Background bubbles */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute bg-blue-400/10 rounded-full floating-bubble"
+            className="absolute bg-emerald-400/10 rounded-full floating-bubble"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -82,7 +82,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             width="120"
             height="120"
             viewBox="0 0 120 120"
-            className="text-blue-300"
+            className="text-emerald-300"
           >
             {/* Yacht silhouette */}
             <path
@@ -101,29 +101,37 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               fill="currentColor"
               className="opacity-40"
             />
+            {/* EFR Style waves */}
+            <path
+              d="M10 85 Q30 82 50 85 T90 85 Q100 82 110 85"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              className="opacity-60"
+            />
           </svg>
           
           {/* Glow effect */}
-          <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-xl scale-150" />
+          <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-xl scale-150" />
         </div>
       </div>
 
       {/* Brand text */}
-      <h1 className="text-4xl font-light text-blue-100 mb-2 tracking-wide">
-        AquaCRM
+      <h1 className="text-4xl font-light text-emerald-100 mb-2 tracking-wide">
+        EFR Marine CRM
       </h1>
-      <p className="text-blue-300/70 mb-16 tracking-wider text-sm">
-        Maritime Tourism Management
+      <p className="text-emerald-300/70 mb-16 tracking-wider text-sm">
+        Excellence in Marine Tourism
       </p>
 
       {/* Progress bar */}
       <div 
         ref={progressBarRef}
-        className="relative w-80 h-2 bg-blue-950/50 rounded-full overflow-hidden backdrop-blur-sm border border-blue-500/20"
+        className="relative w-80 h-2 bg-emerald-950/50 rounded-full overflow-hidden backdrop-blur-sm border border-emerald-500/20"
       >
         <div
           ref={progressFillRef}
-          className="absolute top-0 left-0 h-full w-0 bg-gradient-to-r from-blue-400 to-cyan-300 rounded-full"
+          className="absolute top-0 left-0 h-full w-0 bg-gradient-to-r from-emerald-400 to-green-300 rounded-full"
         />
         
         {/* Wave overlay */}
@@ -134,8 +142,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       </div>
 
       {/* Loading text */}
-      <div className="mt-8 text-blue-300/50 text-sm tracking-widest">
-        INITIALIZING NAVIGATION SYSTEMS...
+      <div className="mt-8 text-emerald-300/50 text-sm tracking-widest">
+        INITIALIZING MARINE OPERATIONS...
       </div>
     </div>
   );

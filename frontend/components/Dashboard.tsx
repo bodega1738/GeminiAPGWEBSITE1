@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Sidebar from './Sidebar';
@@ -8,11 +8,16 @@ import PipelineVisualization from './PipelineVisualization';
 import CommunicationHub from './CommunicationHub';
 import QuickActions from './QuickActions';
 import AIAssistant from './AIAssistant';
+import LeadsView from './LeadsView';
+import CalendarView from './CalendarView';
+import AnalyticsView from './AnalyticsView';
+import SettingsView from './SettingsView';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Dashboard() {
   const dashboardRef = useRef<HTMLDivElement>(null);
+  const [activeView, setActiveView] = useState('dashboard');
 
   useEffect(() => {
     // Dashboard entrance animation
@@ -42,35 +47,76 @@ export default function Dashboard() {
     };
   }, []);
 
+  const renderMainContent = () => {
+    switch (activeView) {
+      case 'leads':
+        return (
+          <div className="dashboard-section">
+            <LeadsView />
+          </div>
+        );
+      case 'communications':
+        return (
+          <div className="dashboard-section">
+            <CommunicationHub />
+          </div>
+        );
+      case 'analytics':
+        return (
+          <div className="dashboard-section">
+            <AnalyticsView />
+          </div>
+        );
+      case 'calendar':
+        return (
+          <div className="dashboard-section">
+            <CalendarView />
+          </div>
+        );
+      case 'settings':
+        return (
+          <div className="dashboard-section">
+            <SettingsView />
+          </div>
+        );
+      default:
+        return (
+          <>
+            {/* Metrics Grid */}
+            <div className="dashboard-section">
+              <MetricsGrid />
+            </div>
+
+            {/* Pipeline and Communication */}
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+              <div className="dashboard-section">
+                <PipelineVisualization />
+              </div>
+              <div className="dashboard-section">
+                <CommunicationHub />
+              </div>
+            </div>
+
+            {/* Quick Actions */}
+            <div className="dashboard-section">
+              <QuickActions />
+            </div>
+          </>
+        );
+    }
+  };
+
   return (
-    <div ref={dashboardRef} className="flex h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+    <div ref={dashboardRef} className="flex h-screen bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-800">
       {/* Sidebar */}
-      <Sidebar />
+      <Sidebar activeView={activeView} onViewChange={setActiveView} />
       
       {/* Main content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header />
         
         <main className="flex-1 overflow-y-auto p-6 space-y-6 custom-scrollbar">
-          {/* Metrics Grid */}
-          <div className="dashboard-section">
-            <MetricsGrid />
-          </div>
-
-          {/* Pipeline and Communication */}
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-            <div className="dashboard-section">
-              <PipelineVisualization />
-            </div>
-            <div className="dashboard-section">
-              <CommunicationHub />
-            </div>
-          </div>
-
-          {/* Quick Actions */}
-          <div className="dashboard-section">
-            <QuickActions />
-          </div>
+          {renderMainContent()}
         </main>
       </div>
 
