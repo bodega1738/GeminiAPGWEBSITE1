@@ -104,6 +104,42 @@ export default function QuickActions() {
     // Add other action handlers here
   };
 
+  const getColorStyles = (color: string) => {
+    const colorMap = {
+      blue: {
+        bg: 'bg-blue-500/20',
+        border: 'border-blue-400/30',
+        text: 'text-blue-300',
+        shadow: 'hover:shadow-blue-500/20'
+      },
+      green: {
+        bg: 'bg-green-500/20',
+        border: 'border-green-400/30',
+        text: 'text-green-300',
+        shadow: 'hover:shadow-green-500/20'
+      },
+      purple: {
+        bg: 'bg-purple-500/20',
+        border: 'border-purple-400/30',
+        text: 'text-purple-300',
+        shadow: 'hover:shadow-purple-500/20'
+      },
+      cyan: {
+        bg: 'bg-cyan-500/20',
+        border: 'border-cyan-400/30',
+        text: 'text-cyan-300',
+        shadow: 'hover:shadow-cyan-500/20'
+      },
+      orange: {
+        bg: 'bg-orange-500/20',
+        border: 'border-orange-400/30',
+        text: 'text-orange-300',
+        shadow: 'hover:shadow-orange-500/20'
+      }
+    };
+    return colorMap[color as keyof typeof colorMap] || colorMap.blue;
+  };
+
   return (
     <div ref={actionsRef} className="space-y-8">
       <h3 className="text-xl font-light text-blue-100 tracking-wide">
@@ -133,6 +169,7 @@ export default function QuickActions() {
               const radius = 120;
               const x = Math.cos((angle * Math.PI) / 180) * radius;
               const y = Math.sin((angle * Math.PI) / 180) * radius;
+              const styles = getColorStyles(action.color);
 
               return (
                 <button
@@ -148,9 +185,8 @@ export default function QuickActions() {
                     w-16 h-16 rounded-full border backdrop-blur-xl
                     flex items-center justify-center
                     transition-all duration-300 hover:scale-110
-                    bg-gradient-to-br from-${action.color}-500/20 to-${action.color}-600/20
-                    border-${action.color}-400/30 text-${action.color}-300
-                    hover:shadow-xl hover:shadow-${action.color}-500/20
+                    ${styles.bg} ${styles.border} ${styles.text}
+                    hover:shadow-xl ${styles.shadow}
                   `}>
                     <Icon className="w-6 h-6" />
                   </div>
@@ -181,26 +217,26 @@ export default function QuickActions() {
           <div className="grid grid-cols-2 gap-4">
             {quickTools.map((tool, index) => {
               const Icon = tool.icon;
+              const styles = getColorStyles(tool.color);
               return (
                 <button
                   key={tool.label}
                   className={`
                     group p-6 rounded-xl border backdrop-blur-xl
-                    bg-gradient-to-br from-${tool.color}-500/10 to-${tool.color}-600/10
-                    border-${tool.color}-400/20 hover:border-${tool.color}-400/40
+                    ${styles.bg} ${styles.border}
+                    hover:border-opacity-60
                     transition-all duration-300 hover:scale-105
-                    hover:shadow-xl hover:shadow-${tool.color}-500/10
+                    hover:shadow-xl ${styles.shadow}
                   `}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex flex-col items-center space-y-3">
                     <div className={`
-                      p-3 rounded-lg bg-gradient-to-br 
-                      from-${tool.color}-500/20 to-${tool.color}-600/20
-                      border border-${tool.color}-400/30
+                      p-3 rounded-lg border
+                      ${styles.bg} ${styles.border}
                       group-hover:scale-110 transition-transform
                     `}>
-                      <Icon className={`w-6 h-6 text-${tool.color}-300`} />
+                      <Icon className={`w-6 h-6 ${styles.text}`} />
                     </div>
                     <span className="text-sm font-medium text-blue-100 text-center">
                       {tool.label}

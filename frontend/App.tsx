@@ -31,8 +31,8 @@ function AppInner() {
 
 export default function App() {
   return (
-    <QueryClient.Provider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
       <AppInner />
-    </QueryClient.Provider>
+    </QueryClientProvider>
   );
 }
