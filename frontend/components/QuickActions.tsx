@@ -46,7 +46,7 @@ export default function QuickActions() {
       id: 'fleet', 
       label: 'Fleet Status', 
       icon: Anchor, 
-      color: 'cyan',
+      color: 'amber',
       position: 'west',
       description: 'Vessel availability'
     },
@@ -124,11 +124,11 @@ export default function QuickActions() {
         text: 'text-purple-300',
         shadow: 'hover:shadow-purple-500/20'
       },
-      cyan: {
-        bg: 'bg-cyan-500/20',
-        border: 'border-cyan-400/30',
-        text: 'text-cyan-300',
-        shadow: 'hover:shadow-cyan-500/20'
+      amber: {
+        bg: 'bg-amber-500/20',
+        border: 'border-amber-400/30',
+        text: 'text-amber-300',
+        shadow: 'hover:shadow-amber-500/20'
       },
       orange: {
         bg: 'bg-orange-500/20',
@@ -142,7 +142,7 @@ export default function QuickActions() {
 
   return (
     <div ref={actionsRef} className="space-y-8">
-      <h3 className="text-xl font-light text-blue-100 tracking-wide">
+      <h3 className="text-xl font-light text-amber-100 tracking-wide">
         Command Center
       </h3>
 
@@ -151,15 +151,15 @@ export default function QuickActions() {
         <div className="flex justify-center">
           <div className="relative w-80 h-80">
             {/* Compass ring */}
-            <div className="compass-ring absolute inset-0 border-2 border-blue-400/30 rounded-full">
-              <div className="absolute inset-4 border border-blue-500/20 rounded-full">
-                <div className="absolute inset-4 border border-blue-600/10 rounded-full" />
+            <div className="compass-ring absolute inset-0 border-2 border-amber-400/30 rounded-full">
+              <div className="absolute inset-4 border border-amber-500/20 rounded-full">
+                <div className="absolute inset-4 border border-amber-600/10 rounded-full" />
               </div>
             </div>
 
             {/* Compass center */}
-            <div className="compass-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-gradient-to-br from-blue-500/30 to-cyan-500/30 backdrop-blur-xl border border-blue-400/50 rounded-full flex items-center justify-center">
-              <Navigation className="w-8 h-8 text-blue-300" />
+            <div className="compass-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-gradient-to-br from-amber-500/30 to-yellow-500/30 backdrop-blur-xl border border-amber-400/50 rounded-full flex items-center justify-center">
+              <Navigation className="w-8 h-8 text-amber-300" />
             </div>
 
             {/* Compass actions */}
@@ -193,9 +193,9 @@ export default function QuickActions() {
                   
                   {/* Label */}
                   <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="bg-slate-900/90 backdrop-blur-sm border border-blue-500/20 rounded-lg px-3 py-1 whitespace-nowrap">
-                      <p className="text-sm font-medium text-blue-100">{action.label}</p>
-                      <p className="text-xs text-blue-300/60">{action.description}</p>
+                    <div className="bg-black/90 backdrop-blur-sm border border-amber-500/20 rounded-lg px-3 py-1 whitespace-nowrap">
+                      <p className="text-sm font-medium text-amber-100">{action.label}</p>
+                      <p className="text-xs text-amber-300/60">{action.description}</p>
                     </div>
                   </div>
                 </button>
@@ -203,16 +203,16 @@ export default function QuickActions() {
             })}
 
             {/* Compass directions */}
-            <div className="absolute top-2 left-1/2 transform -translate-x-1/2 text-xs text-blue-400/60 font-light">N</div>
-            <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-xs text-blue-400/60 font-light">S</div>
-            <div className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs text-blue-400/60 font-light">E</div>
-            <div className="absolute left-2 top-1/2 transform -translate-y-1/2 text-xs text-blue-400/60 font-light">W</div>
+            <div className="absolute top-2 left-1/2 transform -translate-x-1/2 text-xs text-amber-400/60 font-light">N</div>
+            <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-xs text-amber-400/60 font-light">S</div>
+            <div className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs text-amber-400/60 font-light">E</div>
+            <div className="absolute left-2 top-1/2 transform -translate-y-1/2 text-xs text-amber-400/60 font-light">W</div>
           </div>
         </div>
 
         {/* Quick Tools Grid */}
         <div className="space-y-6">
-          <h4 className="text-lg font-light text-blue-100">Quick Tools</h4>
+          <h4 className="text-lg font-light text-amber-100">Quick Tools</h4>
           
           <div className="grid grid-cols-2 gap-4">
             {quickTools.map((tool, index) => {
@@ -238,7 +238,7 @@ export default function QuickActions() {
                     `}>
                       <Icon className={`w-6 h-6 ${styles.text}`} />
                     </div>
-                    <span className="text-sm font-medium text-blue-100 text-center">
+                    <span className="text-sm font-medium text-amber-100 text-center">
                       {tool.label}
                     </span>
                   </div>
@@ -248,8 +248,8 @@ export default function QuickActions() {
           </div>
 
           {/* Fleet availability preview */}
-          <div className="bg-slate-800/30 backdrop-blur-xl border border-blue-500/20 rounded-xl p-6">
-            <h5 className="text-lg font-light text-blue-100 mb-4">Fleet Status</h5>
+          <div className="bg-slate-900/30 backdrop-blur-xl border border-amber-500/20 rounded-xl p-6">
+            <h5 className="text-lg font-light text-amber-100 mb-4">Fleet Status</h5>
             
             <div className="space-y-3">
               {[
@@ -258,7 +258,7 @@ export default function QuickActions() {
                 { name: 'Wave Rider', type: 'Speedboat', status: 'maintenance', bookings: 0 },
                 { name: 'Blue Pearl', type: 'Sailboat', status: 'available', bookings: 2 },
               ].map((vessel, index) => (
-                <div key={vessel.name} className="flex items-center justify-between p-3 bg-slate-900/30 rounded-lg">
+                <div key={vessel.name} className="flex items-center justify-between p-3 bg-black/30 rounded-lg">
                   <div className="flex items-center space-x-3">
                     <div className={`w-3 h-3 rounded-full ${
                       vessel.status === 'available' ? 'bg-green-400' :
@@ -266,14 +266,14 @@ export default function QuickActions() {
                       'bg-red-400'
                     }`} />
                     <div>
-                      <p className="text-sm font-medium text-blue-100">{vessel.name}</p>
-                      <p className="text-xs text-blue-300/60">{vessel.type}</p>
+                      <p className="text-sm font-medium text-amber-100">{vessel.name}</p>
+                      <p className="text-xs text-amber-300/60">{vessel.type}</p>
                     </div>
                   </div>
                   
                   <div className="text-right">
-                    <p className="text-xs text-blue-300/60">Bookings</p>
-                    <p className="text-sm font-medium text-blue-100">{vessel.bookings}</p>
+                    <p className="text-xs text-amber-300/60">Bookings</p>
+                    <p className="text-sm font-medium text-amber-100">{vessel.bookings}</p>
                   </div>
                 </div>
               ))}
@@ -285,13 +285,13 @@ export default function QuickActions() {
       {/* Quick Quote Modal */}
       {showQuoteForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="bg-slate-900/95 backdrop-blur-xl border border-blue-500/20 rounded-xl p-8 max-w-md w-full mx-4">
-            <h3 className="text-xl font-light text-blue-100 mb-6">Quick Quote Generator</h3>
+          <div className="bg-black/95 backdrop-blur-xl border border-amber-500/20 rounded-xl p-8 max-w-md w-full mx-4">
+            <h3 className="text-xl font-light text-amber-100 mb-6">Quick Quote Generator</h3>
             
             <div className="space-y-4">
               <div>
-                <label className="block text-sm text-blue-300/70 mb-2">Vessel Type</label>
-                <select className="w-full p-3 bg-slate-800/50 border border-blue-500/20 rounded-lg text-blue-100 focus:outline-none focus:border-blue-400/50">
+                <label className="block text-sm text-amber-300/70 mb-2">Vessel Type</label>
+                <select className="w-full p-3 bg-slate-900/50 border border-amber-500/20 rounded-lg text-amber-100 focus:outline-none focus:border-amber-400/50">
                   <option>Select vessel...</option>
                   <option>Yacht</option>
                   <option>Catamaran</option>
@@ -301,20 +301,20 @@ export default function QuickActions() {
               </div>
               
               <div>
-                <label className="block text-sm text-blue-300/70 mb-2">Party Size</label>
+                <label className="block text-sm text-amber-300/70 mb-2">Party Size</label>
                 <input 
                   type="number" 
                   placeholder="Number of guests"
-                  className="w-full p-3 bg-slate-800/50 border border-blue-500/20 rounded-lg text-blue-100 placeholder-blue-300/50 focus:outline-none focus:border-blue-400/50"
+                  className="w-full p-3 bg-slate-900/50 border border-amber-500/20 rounded-lg text-amber-100 placeholder-amber-300/50 focus:outline-none focus:border-amber-400/50"
                 />
               </div>
               
               <div>
-                <label className="block text-sm text-blue-300/70 mb-2">Duration (hours)</label>
+                <label className="block text-sm text-amber-300/70 mb-2">Duration (hours)</label>
                 <input 
                   type="number" 
                   placeholder="Duration"
-                  className="w-full p-3 bg-slate-800/50 border border-blue-500/20 rounded-lg text-blue-100 placeholder-blue-300/50 focus:outline-none focus:border-blue-400/50"
+                  className="w-full p-3 bg-slate-900/50 border border-amber-500/20 rounded-lg text-amber-100 placeholder-amber-300/50 focus:outline-none focus:border-amber-400/50"
                 />
               </div>
             </div>
@@ -322,11 +322,11 @@ export default function QuickActions() {
             <div className="flex space-x-3 mt-8">
               <button 
                 onClick={() => setShowQuoteForm(false)}
-                className="flex-1 py-3 px-4 bg-slate-800/50 border border-blue-500/20 rounded-lg text-blue-300 hover:text-blue-100 transition-colors"
+                className="flex-1 py-3 px-4 bg-slate-900/50 border border-amber-500/20 rounded-lg text-amber-300 hover:text-amber-100 transition-colors"
               >
                 Cancel
               </button>
-              <button className="flex-1 py-3 px-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg text-white font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+              <button className="flex-1 py-3 px-4 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-lg text-black font-medium hover:shadow-lg hover:shadow-amber-500/25 transition-all">
                 Generate Quote
               </button>
             </div>

@@ -30,7 +30,7 @@ export default function Header() {
   return (
     <header 
       ref={headerRef}
-      className="bg-slate-900/80 backdrop-blur-xl border-b border-emerald-500/20 px-6 py-4"
+      className="bg-black/80 backdrop-blur-xl border-b border-amber-500/20 px-6 py-4"
     >
       <div className="flex items-center justify-between">
         {/* Left: Search and alerts */}
@@ -52,14 +52,14 @@ export default function Header() {
 
           {/* Search */}
           <div className="relative group">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-emerald-300/60 group-focus-within:text-emerald-300" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-amber-300/60 group-focus-within:text-amber-300" />
             <input
               type="text"
               placeholder="Search leads, conversations, boats..."
               className="
-                w-80 pl-10 pr-4 py-2 bg-slate-800/50 border border-emerald-500/20 rounded-lg
-                text-emerald-100 placeholder-emerald-300/50 
-                focus:outline-none focus:border-emerald-400/50 focus:bg-slate-800/70
+                w-80 pl-10 pr-4 py-2 bg-slate-900/50 border border-amber-500/20 rounded-lg
+                text-amber-100 placeholder-amber-300/50 
+                focus:outline-none focus:border-amber-400/50 focus:bg-slate-900/70
                 transition-all duration-200
               "
             />
@@ -75,18 +75,18 @@ export default function Header() {
           </div>
 
           {/* Time zone */}
-          <div className="flex items-center space-x-2 px-3 py-1 bg-slate-800/50 rounded-lg border border-emerald-500/20">
-            <Globe className="w-4 h-4 text-emerald-300/60" />
-            <span className="text-sm text-emerald-200">GMT+8</span>
+          <div className="flex items-center space-x-2 px-3 py-1 bg-slate-900/50 rounded-lg border border-amber-500/20">
+            <Globe className="w-4 h-4 text-amber-300/60" />
+            <span className="text-sm text-amber-200">GMT+8</span>
           </div>
 
           {/* Theme toggle */}
-          <button className="p-2 rounded-lg bg-slate-800/50 border border-emerald-500/20 text-emerald-300 hover:text-emerald-100 hover:bg-slate-800/70 transition-all">
+          <button className="p-2 rounded-lg bg-slate-900/50 border border-amber-500/20 text-amber-300 hover:text-amber-100 hover:bg-slate-900/70 transition-all">
             <Sun className="w-5 h-5" />
           </button>
 
           {/* Notifications */}
-          <button className="relative p-2 rounded-lg bg-slate-800/50 border border-emerald-500/20 text-emerald-300 hover:text-emerald-100 hover:bg-slate-800/70 transition-all">
+          <button className="relative p-2 rounded-lg bg-slate-900/50 border border-amber-500/20 text-amber-300 hover:text-amber-100 hover:bg-slate-900/70 transition-all">
             <Bell className="w-5 h-5" />
             {notifications > 0 && (
               <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">

@@ -107,7 +107,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div ref={dashboardRef} className="flex h-screen bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-800">
+    <div ref={dashboardRef} className="flex h-screen bg-gradient-to-br from-black via-slate-900 to-black">
       {/* Sidebar */}
       <Sidebar activeView={activeView} onViewChange={setActiveView} />
       

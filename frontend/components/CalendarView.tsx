@@ -175,12 +175,12 @@ export default function CalendarView() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <Calendar className="w-6 h-6 text-emerald-400" />
-          <h2 className="text-2xl font-light text-emerald-100 tracking-wide">
+          <Calendar className="w-6 h-6 text-amber-400" />
+          <h2 className="text-2xl font-light text-amber-100 tracking-wide">
             Booking Calendar
           </h2>
         </div>
-        <button className="flex items-center space-x-2 px-4 py-2 bg-emerald-500/20 border border-emerald-400/30 rounded-lg text-emerald-300 hover:text-emerald-100 hover:bg-emerald-500/30 transition-all">
+        <button className="flex items-center space-x-2 px-4 py-2 bg-amber-500/20 border border-amber-400/30 rounded-lg text-amber-300 hover:text-amber-100 hover:bg-amber-500/30 transition-all">
           <Plus className="w-4 h-4" />
           <span>New Booking</span>
         </button>
@@ -188,22 +188,22 @@ export default function CalendarView() {
 
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         {/* Calendar */}
-        <div className="xl:col-span-2 bg-slate-800/30 backdrop-blur-xl border border-emerald-500/20 rounded-xl p-6">
+        <div className="xl:col-span-2 bg-slate-900/30 backdrop-blur-xl border border-amber-500/20 rounded-xl p-6">
           {/* Calendar Header */}
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-medium text-emerald-100">
+            <h3 className="text-xl font-medium text-amber-100">
               {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
             </h3>
             <div className="flex space-x-2">
               <button 
                 onClick={prevMonth}
-                className="p-2 rounded-lg bg-slate-900/50 border border-emerald-500/20 text-emerald-300 hover:text-emerald-100 transition-colors"
+                className="p-2 rounded-lg bg-black/50 border border-amber-500/20 text-amber-300 hover:text-amber-100 transition-colors"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
               <button 
                 onClick={nextMonth}
-                className="p-2 rounded-lg bg-slate-900/50 border border-emerald-500/20 text-emerald-300 hover:text-emerald-100 transition-colors"
+                className="p-2 rounded-lg bg-black/50 border border-amber-500/20 text-amber-300 hover:text-amber-100 transition-colors"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -213,7 +213,7 @@ export default function CalendarView() {
           {/* Day Names */}
           <div className="grid grid-cols-7 gap-1 mb-2">
             {dayNames.map(day => (
-              <div key={day} className="p-2 text-center text-sm font-medium text-emerald-300/60">
+              <div key={day} className="p-2 text-center text-sm font-medium text-amber-300/60">
                 {day}
               </div>
             ))}
@@ -230,17 +230,17 @@ export default function CalendarView() {
                 <div
                   key={index}
                   className={`
-                    calendar-cell relative h-24 p-1 border border-emerald-500/10 rounded-lg cursor-pointer
-                    transition-all duration-200 hover:bg-emerald-500/10
-                    ${isSelected ? 'bg-emerald-500/20 border-emerald-400/40' : ''}
-                    ${isToday ? 'ring-1 ring-emerald-400/50' : ''}
+                    calendar-cell relative h-24 p-1 border border-amber-500/10 rounded-lg cursor-pointer
+                    transition-all duration-200 hover:bg-amber-500/10
+                    ${isSelected ? 'bg-amber-500/20 border-amber-400/40' : ''}
+                    ${isToday ? 'ring-1 ring-amber-400/50' : ''}
                     ${!day ? 'cursor-default' : ''}
                   `}
                   onClick={() => day && setSelectedDate(day)}
                 >
                   {day && (
                     <>
-                      <div className={`text-sm font-medium ${isToday ? 'text-emerald-200' : 'text-emerald-300/80'}`}>
+                      <div className={`text-sm font-medium ${isToday ? 'text-amber-200' : 'text-amber-300/80'}`}>
                         {day.getDate()}
                       </div>
                       <div className="space-y-1 mt-1">
@@ -253,7 +253,7 @@ export default function CalendarView() {
                           </div>
                         ))}
                         {bookings.length > 2 && (
-                          <div className="text-xs text-emerald-300/60 text-center">
+                          <div className="text-xs text-amber-300/60 text-center">
                             +{bookings.length - 2} more
                           </div>
                         )}
@@ -268,8 +268,8 @@ export default function CalendarView() {
 
         {/* Selected Date Details */}
         <div className="space-y-6">
-          <div className="bg-slate-800/30 backdrop-blur-xl border border-emerald-500/20 rounded-xl p-6">
-            <h3 className="text-lg font-medium text-emerald-100 mb-4">
+          <div className="bg-slate-900/30 backdrop-blur-xl border border-amber-500/20 rounded-xl p-6">
+            <h3 className="text-lg font-medium text-amber-100 mb-4">
               {selectedDate.toLocaleDateString('en-US', { 
                 weekday: 'long', 
                 year: 'numeric', 
@@ -279,17 +279,17 @@ export default function CalendarView() {
             </h3>
 
             {selectedDateBookings.length === 0 ? (
-              <p className="text-emerald-300/60 text-center py-8">
+              <p className="text-amber-300/60 text-center py-8">
                 No bookings for this date
               </p>
             ) : (
               <div className="space-y-4">
                 {selectedDateBookings.map(booking => (
-                  <div key={booking.id} className="bg-slate-900/30 rounded-lg p-4">
+                  <div key={booking.id} className="bg-black/30 rounded-lg p-4">
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <h4 className="font-medium text-emerald-100">{booking.title}</h4>
-                        <p className="text-sm text-emerald-300/70">{booking.client}</p>
+                        <h4 className="font-medium text-amber-100">{booking.title}</h4>
+                        <p className="text-sm text-amber-300/70">{booking.client}</p>
                       </div>
                       <span className={`px-2 py-1 rounded-full text-xs border ${getStatusColor(booking.status)}`}>
                         {booking.status}
@@ -297,26 +297,26 @@ export default function CalendarView() {
                     </div>
 
                     <div className="space-y-2 text-sm">
-                      <div className="flex items-center space-x-2 text-emerald-300/70">
+                      <div className="flex items-center space-x-2 text-amber-300/70">
                         <Anchor className="w-4 h-4" />
                         <span>{booking.vessel}</span>
                       </div>
-                      <div className="flex items-center space-x-2 text-emerald-300/70">
+                      <div className="flex items-center space-x-2 text-amber-300/70">
                         <Clock className="w-4 h-4" />
                         <span>{booking.time}</span>
                       </div>
-                      <div className="flex items-center space-x-2 text-emerald-300/70">
+                      <div className="flex items-center space-x-2 text-amber-300/70">
                         <Users className="w-4 h-4" />
                         <span>{booking.guests} guests</span>
                       </div>
-                      <div className="flex items-center space-x-2 text-emerald-300/70">
+                      <div className="flex items-center space-x-2 text-amber-300/70">
                         <MapPin className="w-4 h-4" />
                         <span>{booking.location}</span>
                       </div>
                     </div>
 
-                    <div className="mt-3 pt-3 border-t border-emerald-500/20">
-                      <p className="text-xs text-emerald-300/60">{booking.notes}</p>
+                    <div className="mt-3 pt-3 border-t border-amber-500/20">
+                      <p className="text-xs text-amber-300/60">{booking.notes}</p>
                     </div>
                   </div>
                 ))}
@@ -325,8 +325,8 @@ export default function CalendarView() {
           </div>
 
           {/* Fleet Status */}
-          <div className="bg-slate-800/30 backdrop-blur-xl border border-emerald-500/20 rounded-xl p-6">
-            <h3 className="text-lg font-medium text-emerald-100 mb-4">Fleet Status</h3>
+          <div className="bg-slate-900/30 backdrop-blur-xl border border-amber-500/20 rounded-xl p-6">
+            <h3 className="text-lg font-medium text-amber-100 mb-4">Fleet Status</h3>
             <div className="space-y-3">
               {[
                 { name: 'Luxury Yacht "Perla"', status: 'available', bookings: 3 },
@@ -335,7 +335,7 @@ export default function CalendarView() {
                 { name: 'Private Yacht "Kalayaan"', status: 'available', bookings: 2 },
                 { name: 'Catamaran "Pag-ibig"', status: 'available', bookings: 4 },
               ].map((vessel, index) => (
-                <div key={vessel.name} className="flex items-center justify-between p-3 bg-slate-900/30 rounded-lg">
+                <div key={vessel.name} className="flex items-center justify-between p-3 bg-black/30 rounded-lg">
                   <div className="flex items-center space-x-3">
                     <div className={`w-3 h-3 rounded-full ${
                       vessel.status === 'available' ? 'bg-green-400' :
@@ -343,14 +343,14 @@ export default function CalendarView() {
                       'bg-red-400'
                     }`} />
                     <div>
-                      <p className="text-sm font-medium text-emerald-100">{vessel.name}</p>
-                      <p className="text-xs text-emerald-300/60 capitalize">{vessel.status}</p>
+                      <p className="text-sm font-medium text-amber-100">{vessel.name}</p>
+                      <p className="text-xs text-amber-300/60 capitalize">{vessel.status}</p>
                     </div>
                   </div>
                   
                   <div className="text-right">
-                    <p className="text-xs text-emerald-300/60">This Month</p>
-                    <p className="text-sm font-medium text-emerald-100">{vessel.bookings} bookings</p>
+                    <p className="text-xs text-amber-300/60">This Month</p>
+                    <p className="text-sm font-medium text-amber-100">{vessel.bookings} bookings</p>
                   </div>
                 </div>
               ))}

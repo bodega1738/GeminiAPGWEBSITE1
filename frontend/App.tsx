@@ -19,7 +19,7 @@ function AppInner() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-800">
+    <div className="min-h-screen bg-gradient-to-br from-black via-slate-900 to-black">
       {isLoading ? (
         <LoadingScreen onComplete={() => setIsLoading(false)} />
       ) : (

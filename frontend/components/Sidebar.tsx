@@ -7,7 +7,6 @@ import {
   BarChart3,
   Calendar,
   Settings,
-  Anchor,
   Menu,
   X
 } from 'lucide-react';
@@ -63,7 +62,7 @@ export default function Sidebar({ activeView, onViewChange }: SidebarProps) {
       {/* Mobile menu button */}
       <button
         onClick={() => setIsMobileOpen(true)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-lg bg-emerald-900/80 backdrop-blur-sm text-emerald-100 hover:bg-emerald-800/80 transition-colors"
+        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-lg bg-black/80 backdrop-blur-sm text-amber-100 hover:bg-slate-800/80 transition-colors"
       >
         <Menu className="w-6 h-6" />
       </button>
@@ -86,18 +85,20 @@ export default function Sidebar({ activeView, onViewChange }: SidebarProps) {
           transition-transform duration-300 ease-in-out
         `}
       >
-        <div className="flex flex-col h-full bg-slate-900/95 backdrop-blur-xl border-r border-emerald-500/20">
+        <div className="flex flex-col h-full bg-black/95 backdrop-blur-xl border-r border-amber-500/20">
           {/* Header */}
           <div className="flex items-center justify-between p-6">
             <div className="flex items-center space-x-3">
               <div ref={logoRef} className="relative">
-                <Anchor className="w-8 h-8 text-emerald-400" />
-                <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-lg scale-150" />
+                <div className="w-10 h-10 rounded-full bg-black border-2 border-amber-400 flex items-center justify-center">
+                  <span className="text-sm font-bold text-amber-400">EFR</span>
+                </div>
+                <div className="absolute inset-0 bg-amber-400/20 rounded-full blur-lg scale-150" />
               </div>
               {!isCollapsed && (
                 <div>
-                  <h1 className="text-xl font-light text-emerald-100 tracking-wide">EFR CRM</h1>
-                  <p className="text-xs text-emerald-300/60">Marine Tourism</p>
+                  <h1 className="text-xl font-light text-amber-100 tracking-wide">EFR CRM</h1>
+                  <p className="text-xs text-amber-300/60">Marine Tourism</p>
                 </div>
               )}
             </div>
@@ -105,7 +106,7 @@ export default function Sidebar({ activeView, onViewChange }: SidebarProps) {
             {/* Close button for mobile */}
             <button
               onClick={() => setIsMobileOpen(false)}
-              className="lg:hidden p-1 rounded-md text-emerald-300 hover:text-emerald-100"
+              className="lg:hidden p-1 rounded-md text-amber-300 hover:text-amber-100"
             >
               <X className="w-5 h-5" />
             </button>
@@ -113,7 +114,7 @@ export default function Sidebar({ activeView, onViewChange }: SidebarProps) {
             {/* Collapse button for desktop */}
             <button
               onClick={toggleSidebar}
-              className="hidden lg:block p-1 rounded-md text-emerald-300 hover:text-emerald-100 transition-colors"
+              className="hidden lg:block p-1 rounded-md text-amber-300 hover:text-amber-100 transition-colors"
             >
               <Menu className="w-5 h-5" />
             </button>
@@ -132,8 +133,8 @@ export default function Sidebar({ activeView, onViewChange }: SidebarProps) {
                     group flex items-center w-full px-3 py-3 text-sm font-medium rounded-lg
                     transition-all duration-200 hover-glow text-left
                     ${isActive 
-                      ? 'bg-emerald-500/20 text-emerald-100 border border-emerald-400/30' 
-                      : 'text-emerald-300/70 hover:text-emerald-100 hover:bg-emerald-500/10'
+                      ? 'bg-amber-500/20 text-amber-100 border border-amber-400/30' 
+                      : 'text-amber-300/70 hover:text-amber-100 hover:bg-amber-500/10'
                     }
                   `}
                   style={{
@@ -147,7 +148,7 @@ export default function Sidebar({ activeView, onViewChange }: SidebarProps) {
                   
                   {/* Active indicator */}
                   {isActive && (
-                    <div className="absolute left-0 w-1 h-8 bg-gradient-to-b from-emerald-400 to-green-300 rounded-r-full" />
+                    <div className="absolute left-0 w-1 h-8 bg-gradient-to-b from-amber-400 to-yellow-300 rounded-r-full" />
                   )}
                 </button>
               );
@@ -155,15 +156,15 @@ export default function Sidebar({ activeView, onViewChange }: SidebarProps) {
           </nav>
 
           {/* User profile */}
-          <div className="p-4 border-t border-emerald-500/20">
+          <div className="p-4 border-t border-amber-500/20">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-green-300 rounded-full flex items-center justify-center">
-                <span className="text-sm font-medium text-slate-900">EF</span>
+              <div className="w-8 h-8 bg-gradient-to-br from-amber-400 to-yellow-300 rounded-full flex items-center justify-center">
+                <span className="text-sm font-medium text-black">EF</span>
               </div>
               {!isCollapsed && (
                 <div>
-                  <p className="text-sm font-medium text-emerald-100">EFR Admin</p>
-                  <p className="text-xs text-emerald-300/60">Marine Manager</p>
+                  <p className="text-sm font-medium text-amber-100">EFR Admin</p>
+                  <p className="text-xs text-amber-300/60">Marine Manager</p>
                 </div>
               )}
             </div>

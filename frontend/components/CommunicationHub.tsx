@@ -86,7 +86,7 @@ export default function CommunicationHub() {
   ];
 
   const channels = [
-    { id: 'all', label: 'All Channels', icon: MessageCircle, color: 'emerald', count: dummyConversations.length },
+    { id: 'all', label: 'All Channels', icon: MessageCircle, color: 'amber', count: dummyConversations.length },
     { id: 'facebook', label: 'Facebook', icon: Facebook, color: 'blue', count: dummyConversations.filter(c => c.lead.source === 'facebook').length },
     { id: 'instagram', label: 'Instagram', icon: Instagram, color: 'pink', count: dummyConversations.filter(c => c.lead.source === 'instagram').length },
     { id: 'whatsapp', label: 'WhatsApp', icon: Phone, color: 'green', count: dummyConversations.filter(c => c.lead.source === 'whatsapp').length },
@@ -135,7 +135,7 @@ export default function CommunicationHub() {
       website: 'text-gray-400 border-gray-400/30',
       referral: 'text-purple-400 border-purple-400/30',
     };
-    return colors[source as keyof typeof colors] || 'text-emerald-400 border-emerald-400/30';
+    return colors[source as keyof typeof colors] || 'text-amber-400 border-amber-400/30';
   };
 
   const getTimeAgo = (timestamp: Date) => {
@@ -155,7 +155,7 @@ export default function CommunicationHub() {
   return (
     <div ref={hubRef} className="space-y-6">
       <div className="flex items-center justify-between">
-        <h3 className="text-xl font-light text-emerald-100 tracking-wide">
+        <h3 className="text-xl font-light text-amber-100 tracking-wide">
           Communication Hub
         </h3>
         <div className="flex items-center space-x-2">
@@ -176,14 +176,14 @@ export default function CommunicationHub() {
                 flex items-center space-x-2 px-4 py-2 rounded-lg border backdrop-blur-xl
                 transition-all duration-200 hover:scale-105
                 ${selectedChannel === channel.id 
-                  ? 'bg-emerald-500/20 border-emerald-400/50 text-emerald-100' 
-                  : 'bg-slate-800/50 border-emerald-500/20 text-emerald-300/70 hover:text-emerald-100'
+                  ? 'bg-amber-500/20 border-amber-400/50 text-amber-100' 
+                  : 'bg-slate-900/50 border-amber-500/20 text-amber-300/70 hover:text-amber-100'
                 }
               `}
             >
               <Icon className="w-4 h-4" />
               <span className="text-sm">{channel.label}</span>
-              <span className="px-2 py-1 bg-emerald-500/20 rounded-full text-xs">
+              <span className="px-2 py-1 bg-amber-500/20 rounded-full text-xs">
                 {channel.count}
               </span>
             </button>
@@ -192,10 +192,10 @@ export default function CommunicationHub() {
       </div>
 
       {/* Live conversations */}
-      <div className="bg-slate-800/30 backdrop-blur-xl border border-emerald-500/20 rounded-xl p-6">
+      <div className="bg-slate-900/30 backdrop-blur-xl border border-amber-500/20 rounded-xl p-6">
         <div className="flex items-center justify-between mb-4">
-          <h4 className="text-lg font-light text-emerald-100">Active Conversations</h4>
-          <button className="text-sm text-emerald-400 hover:text-emerald-300 transition-colors">
+          <h4 className="text-lg font-light text-amber-100">Active Conversations</h4>
+          <button className="text-sm text-amber-400 hover:text-amber-300 transition-colors">
             View All
           </button>
         </div>
@@ -208,18 +208,18 @@ export default function CommunicationHub() {
             return (
               <div
                 key={conversation.id}
-                className="communication-item group flex items-center space-x-4 p-3 rounded-lg bg-slate-900/30 hover:bg-slate-900/50 transition-all duration-200 cursor-pointer"
+                className="communication-item group flex items-center space-x-4 p-3 rounded-lg bg-black/30 hover:bg-black/50 transition-all duration-200 cursor-pointer"
               >
                 {/* Avatar */}
                 <div className="relative">
-                  <div className="w-10 h-10 bg-gradient-to-br from-emerald-400 to-green-300 rounded-full flex items-center justify-center">
-                    <span className="text-sm font-medium text-slate-900">
+                  <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-yellow-300 rounded-full flex items-center justify-center">
+                    <span className="text-sm font-medium text-black">
                       {conversation.lead.name.charAt(0)}
                     </span>
                   </div>
                   
                   {/* Channel indicator */}
-                  <div className={`absolute -bottom-1 -right-1 w-5 h-5 rounded-full border-2 border-slate-800 flex items-center justify-center ${getChannelColor(conversation.lead.source)}`}>
+                  <div className={`absolute -bottom-1 -right-1 w-5 h-5 rounded-full border-2 border-black flex items-center justify-center ${getChannelColor(conversation.lead.source)}`}>
                     <ChannelIcon className="w-3 h-3" />
                   </div>
 
@@ -232,12 +232,12 @@ export default function CommunicationHub() {
                 {/* Conversation info */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between">
-                    <p className="text-sm font-medium text-emerald-100 truncate">
+                    <p className="text-sm font-medium text-amber-100 truncate">
                       {conversation.lead.name}
                     </p>
                     <div className="flex items-center space-x-2">
-                      <Clock className="w-3 h-3 text-emerald-300/60" />
-                      <span className="text-xs text-emerald-300/60">
+                      <Clock className="w-3 h-3 text-amber-300/60" />
+                      <span className="text-xs text-amber-300/60">
                         {getTimeAgo(conversation.timestamp)}
                       </span>
                     </div>
@@ -245,8 +245,8 @@ export default function CommunicationHub() {
                   
                   <div className="flex items-center space-x-2 mt-1">
                     {lastMessage.sender === 'ai' && <Bot className="w-3 h-3 text-blue-400" />}
-                    {lastMessage.sender === 'agent' && <User className="w-3 h-3 text-emerald-400" />}
-                    <p className="text-sm text-emerald-300/70 truncate">
+                    {lastMessage.sender === 'agent' && <User className="w-3 h-3 text-amber-400" />}
+                    <p className="text-sm text-amber-300/70 truncate">
                       {conversation.lastMessage}
                     </p>
                   </div>
@@ -256,7 +256,7 @@ export default function CommunicationHub() {
                     <span className={`px-2 py-1 rounded-full text-xs border ${
                       conversation.priority === 'urgent' ? 'bg-red-500/20 border-red-400/30 text-red-300' :
                       conversation.priority === 'high' ? 'bg-orange-500/20 border-orange-400/30 text-orange-300' :
-                      'bg-emerald-500/20 border-emerald-400/30 text-emerald-300'
+                      'bg-amber-500/20 border-amber-400/30 text-amber-300'
                     }`}>
                       {conversation.priority}
                     </span>
@@ -271,7 +271,7 @@ export default function CommunicationHub() {
 
                 {/* Quick actions */}
                 <div className="flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button className="p-2 rounded-lg bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 hover:text-emerald-100 transition-colors">
+                  <button className="p-2 rounded-lg bg-amber-500/20 border border-amber-400/30 text-amber-300 hover:text-amber-100 transition-colors">
                     <Send className="w-4 h-4" />
                   </button>
                 </div>
@@ -281,8 +281,8 @@ export default function CommunicationHub() {
         </div>
 
         {/* Quick response templates in Taglish */}
-        <div className="mt-6 pt-4 border-t border-emerald-500/20">
-          <h5 className="text-sm font-medium text-emerald-100 mb-3">Quick Responses</h5>
+        <div className="mt-6 pt-4 border-t border-amber-500/20">
+          <h5 className="text-sm font-medium text-amber-100 mb-3">Quick Responses</h5>
           <div className="flex flex-wrap gap-2">
             {[
               "Salamat sa inquiry! 🚤",
@@ -293,7 +293,7 @@ export default function CommunicationHub() {
             ].map((template, index) => (
               <button
                 key={index}
-                className="message-bubble px-3 py-2 text-xs bg-emerald-500/20 border border-emerald-400/30 rounded-lg text-emerald-300 hover:text-emerald-100 hover:bg-emerald-500/30 transition-all"
+                className="message-bubble px-3 py-2 text-xs bg-amber-500/20 border border-amber-400/30 rounded-lg text-amber-300 hover:text-amber-100 hover:bg-amber-500/30 transition-all"
               >
                 {template}
               </button>

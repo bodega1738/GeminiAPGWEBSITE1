@@ -40,6 +40,7 @@ export default function AIAssistant() {
   ];
 
   useEffect(() => {
+    if (!bubbleRef.current) return;
     // Floating animation for assistant bubble
     gsap.to(bubbleRef.current, {
       y: -10,
@@ -100,47 +101,47 @@ export default function AIAssistant() {
       {isOpen && (
         <div 
           ref={chatRef}
-          className="absolute bottom-20 right-0 w-96 h-[600px] bg-slate-900/95 backdrop-blur-xl border border-blue-500/20 rounded-xl shadow-2xl shadow-blue-500/10 flex flex-col"
+          className="absolute bottom-20 right-0 w-96 h-[600px] bg-black/95 backdrop-blur-xl border border-amber-500/20 rounded-xl shadow-2xl shadow-amber-500/10 flex flex-col"
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-blue-500/20">
+          <div className="flex items-center justify-between p-4 border-b border-amber-500/20">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
-                  <Bot className="w-5 h-5 text-white" />
+                <div className="w-8 h-8 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center">
+                  <Bot className="w-5 h-5 text-black" />
                 </div>
-                <div className="ai-glow absolute inset-0 bg-blue-400/30 rounded-full blur-lg scale-150" />
+                <div className="ai-glow absolute inset-0 bg-amber-400/30 rounded-full blur-lg scale-150" />
               </div>
               <div>
-                <h3 className="text-sm font-medium text-blue-100">Maritime AI</h3>
-                <p className="text-xs text-blue-300/60">Intelligent Assistant</p>
+                <h3 className="text-sm font-medium text-amber-100">Maritime AI</h3>
+                <p className="text-xs text-amber-300/60">Intelligent Assistant</p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1 rounded-md text-blue-300 hover:text-blue-100 transition-colors"
+              className="p-1 rounded-md text-amber-300 hover:text-amber-100 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Insights */}
-          <div className="p-4 border-b border-blue-500/20">
+          <div className="p-4 border-b border-amber-500/20">
             <div className="flex items-center space-x-2 mb-3">
               <Lightbulb className="w-4 h-4 text-yellow-400" />
-              <span className="text-sm font-medium text-blue-100">Smart Insights</span>
+              <span className="text-sm font-medium text-amber-100">Smart Insights</span>
             </div>
             <div className="space-y-2 max-h-32 overflow-y-auto custom-scrollbar">
               {insights.map((insight, index) => {
                 const Icon = insight.icon;
                 return (
-                  <div key={index} className="p-3 bg-slate-800/30 rounded-lg border border-blue-500/10">
+                  <div key={index} className="p-3 bg-slate-900/30 rounded-lg border border-amber-500/10">
                     <div className="flex items-start space-x-3">
-                      <Icon className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                      <Icon className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
                       <div className="flex-1 min-w-0">
-                        <p className="text-xs font-medium text-blue-100">{insight.title}</p>
-                        <p className="text-xs text-blue-300/70 mt-1">{insight.content}</p>
-                        <button className="text-xs text-blue-400 hover:text-blue-300 mt-2 transition-colors">
+                        <p className="text-xs font-medium text-amber-100">{insight.title}</p>
+                        <p className="text-xs text-amber-300/70 mt-1">{insight.content}</p>
+                        <button className="text-xs text-amber-400 hover:text-amber-300 mt-2 transition-colors">
                           {insight.action} →
                         </button>
                       </div>
@@ -161,13 +162,13 @@ export default function AIAssistant() {
                 <div
                   className={`max-w-[80%] p-3 rounded-lg ${
                     message.type === 'user'
-                      ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
-                      : 'bg-slate-800/50 border border-blue-500/20 text-blue-100'
+                      ? 'bg-gradient-to-r from-amber-500 to-yellow-500 text-black'
+                      : 'bg-slate-900/50 border border-amber-500/20 text-amber-100'
                   }`}
                 >
                   <p className="text-sm">{message.content}</p>
                   <p className={`text-xs mt-1 ${
-                    message.type === 'user' ? 'text-blue-100' : 'text-blue-300/60'
+                    message.type === 'user' ? 'text-yellow-900/80' : 'text-amber-300/60'
                   }`}>
                     {message.timestamp.toLocaleTimeString()}
                   </p>
@@ -177,7 +178,7 @@ export default function AIAssistant() {
           </div>
 
           {/* Input */}
-          <div className="p-4 border-t border-blue-500/20">
+          <div className="p-4 border-t border-amber-500/20">
             <div className="flex space-x-2">
               <input
                 type="text"
@@ -185,11 +186,11 @@ export default function AIAssistant() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                 placeholder="Ask about leads, analytics, optimization..."
-                className="flex-1 p-3 bg-slate-800/50 border border-blue-500/20 rounded-lg text-blue-100 placeholder-blue-300/50 text-sm focus:outline-none focus:border-blue-400/50"
+                className="flex-1 p-3 bg-slate-900/50 border border-amber-500/20 rounded-lg text-amber-100 placeholder-amber-300/50 text-sm focus:outline-none focus:border-amber-400/50"
               />
               <button
                 onClick={handleSendMessage}
-                className="p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg text-white hover:shadow-lg hover:shadow-blue-500/25 transition-all"
+                className="p-3 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-lg text-black hover:shadow-lg hover:shadow-amber-500/25 transition-all"
               >
                 <Send className="w-4 h-4" />
               </button>
@@ -202,12 +203,12 @@ export default function AIAssistant() {
       <button
         ref={bubbleRef}
         onClick={() => setIsOpen(!isOpen)}
-        className="relative w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:scale-110 flex items-center justify-center group"
+        className="relative w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full shadow-2xl shadow-amber-500/25 hover:shadow-amber-500/40 transition-all hover:scale-110 flex items-center justify-center group"
       >
-        <Bot className="w-8 h-8 text-white" />
+        <Bot className="w-8 h-8 text-black" />
         
         {/* Glow effect */}
-        <div className="ai-glow absolute inset-0 bg-blue-400/30 rounded-full blur-xl scale-150" />
+        <div className="ai-glow absolute inset-0 bg-amber-400/30 rounded-full blur-xl scale-150" />
         
         {/* Notification indicator */}
         <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
@@ -216,9 +217,9 @@ export default function AIAssistant() {
 
         {/* Hover tooltip */}
         <div className="absolute bottom-full mb-2 right-0 opacity-0 group-hover:opacity-100 transition-opacity">
-          <div className="bg-slate-900/90 backdrop-blur-sm border border-blue-500/20 rounded-lg px-3 py-2 whitespace-nowrap">
-            <p className="text-sm text-blue-100">Maritime AI Assistant</p>
-            <p className="text-xs text-blue-300/60">Click for insights & analytics</p>
+          <div className="bg-black/90 backdrop-blur-sm border border-amber-500/20 rounded-lg px-3 py-2 whitespace-nowrap">
+            <p className="text-sm text-amber-100">Maritime AI Assistant</p>
+            <p className="text-xs text-amber-300/60">Click for insights & analytics</p>
           </div>
         </div>
       </button>
