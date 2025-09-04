@@ -1,0 +1,208 @@
+/* Custom animations and utilities */
+
+.floating-bubble {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1);
+    opacity: 0.9;
+  }
+}
+
+.hover-glow {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.5);
+}
+
+/* Glassmorphism effects */
+.glass-card {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Wave animations */
+@keyframes wave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.wave-animation {
+  animation: wave 3s ease-in-out infinite;
+}
+
+/* Compass animations */
+@keyframes compass-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.compass-spin {
+  animation: compass-spin 60s linear infinite;
+}
+
+/* Maritime themed gradients */
+.maritime-gradient {
+  background: linear-gradient(135deg, 
+    rgba(15, 23, 42, 0.9) 0%, 
+    rgba(30, 58, 138, 0.8) 25%, 
+    rgba(59, 130, 246, 0.7) 50%, 
+    rgba(6, 182, 212, 0.6) 75%, 
+    rgba(15, 23, 42, 0.9) 100%
+  );
+}
+
+/* Pulsing animations for alerts */
+@keyframes urgent-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(251, 146, 60, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(251, 146, 60, 0);
+  }
+}
+
+.urgent-pulse {
+  animation: urgent-pulse 2s infinite;
+}
+
+/* Smooth transitions */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Neumorphic glow effects */
+.neuro-glow {
+  box-shadow: 
+    0 8px 32px rgba(59, 130, 246, 0.1),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.neuro-glow:hover {
+  box-shadow: 
+    0 12px 40px rgba(59, 130, 246, 0.2),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Maritime-specific elements */
+.anchor-swing {
+  animation: anchor-swing 4s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes anchor-swing {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.lighthouse-beam {
+  animation: lighthouse-beam 5s linear infinite;
+}
+
+@keyframes lighthouse-beam {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(360deg) scale(0.8);
+  }
+}
+
+/* Water ripple effect */
+.water-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.water-ripple::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.2),
+    transparent
+  );
+  animation: ripple 2s infinite;
+}
+
+@keyframes ripple {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .floating-bubble {
+    animation-duration: 4s;
+  }
+  
+  .compass-spin {
+    animation-duration: 30s;
+  }
+}
+
+/* Dark mode maritime theme */
+.dark {
+  --maritime-primary: #1e40af;
+  --maritime-secondary: #0891b2;
+  --maritime-accent: #06b6d4;
+  --maritime-surface: rgba(15, 23, 42, 0.8);
+  --maritime-overlay: rgba(30, 58, 138, 0.1);
+}
