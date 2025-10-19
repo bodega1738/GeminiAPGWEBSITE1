@@ -8,11 +8,18 @@ import {
   Calendar,
   Settings,
   Menu,
-  X
+  X,
+  FileText,
+  Ship,
+  Anchor
 } from 'lucide-react';
 
 const navigation = [
   { name: 'Dashboard', icon: LayoutDashboard, id: 'dashboard' },
+  { name: 'Conversations', icon: MessageCircle, id: 'conversations' },
+  { name: 'Quotes', icon: FileText, id: 'quotes' },
+  { name: 'Bookings', icon: Anchor, id: 'bookings' },
+  { name: 'Fleet', icon: Ship, id: 'fleet' },
   { name: 'Leads', icon: Users, id: 'leads' },
   { name: 'Communications', icon: MessageCircle, id: 'communications' },
   { name: 'Analytics', icon: BarChart3, id: 'analytics' },

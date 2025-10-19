@@ -8,10 +8,16 @@ import PipelineVisualization from './PipelineVisualization';
 import CommunicationHub from './CommunicationHub';
 import QuickActions from './QuickActions';
 import AIAssistant from './AIAssistant';
+import AIAssistantWidget from './AIAssistantWidget';
 import LeadsView from './LeadsView';
 import CalendarView from './CalendarView';
 import AnalyticsView from './AnalyticsView';
 import SettingsView from './SettingsView';
+import QuotesView from './QuotesView';
+import ConversationsView from './ConversationsView';
+import BookingsView from './BookingsView';
+import FleetView from './FleetView';
+import SettingsAdminView from './SettingsAdminView';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,6 +55,30 @@ export default function Dashboard() {
 
   const renderMainContent = () => {
     switch (activeView) {
+      case 'conversations':
+        return (
+          <div className="dashboard-section">
+            <ConversationsView />
+          </div>
+        );
+      case 'quotes':
+        return (
+          <div className="dashboard-section">
+            <QuotesView />
+          </div>
+        );
+      case 'bookings':
+        return (
+          <div className="dashboard-section">
+            <BookingsView />
+          </div>
+        );
+      case 'fleet':
+        return (
+          <div className="dashboard-section">
+            <FleetView />
+          </div>
+        );
       case 'leads':
         return (
           <div className="dashboard-section">
@@ -76,7 +106,7 @@ export default function Dashboard() {
       case 'settings':
         return (
           <div className="dashboard-section">
-            <SettingsView />
+            <SettingsAdminView />
           </div>
         );
       default:
@@ -120,8 +150,8 @@ export default function Dashboard() {
         </main>
       </div>
 
-      {/* Floating AI Assistant */}
-      <AIAssistant />
+      {/* Floating AI Assistant Widget */}
+      <AIAssistantWidget />
     </div>
   );
 }
