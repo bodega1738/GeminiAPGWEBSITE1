@@ -1,10 +1,8 @@
 import { api, APIError } from "encore.dev/api";
-import { SQLDatabase } from "encore.dev/storage/sqldb";
 import { getAuthData } from "~encore/auth";
 import type { AuthData } from "../auth/auth";
 import type { ServiceLineItem, BreakdownItem, AppliedRule } from "./calculator";
-
-const db = SQLDatabase.named("crm");
+import db from "../db";
 
 export interface Quote {
   id: string;

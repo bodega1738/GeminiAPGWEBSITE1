@@ -1,10 +1,8 @@
 import { api, APIError } from "encore.dev/api";
-import { SQLDatabase } from "encore.dev/storage/sqldb";
 import { getAuthData } from "~encore/auth";
 import { secret } from "encore.dev/config";
 import type { AuthData } from "../auth/auth";
-
-const db = SQLDatabase.named("crm");
+import db from "../db";
 const unipileToken = secret("UNIPILE_TOKEN");
 
 export interface Thread {

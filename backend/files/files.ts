@@ -1,10 +1,8 @@
 import { api, APIError, Query } from "encore.dev/api";
-import { SQLDatabase } from "encore.dev/storage/sqldb";
 import { Bucket } from "encore.dev/storage/objects";
 import { getAuthData } from "~encore/auth";
 import type { AuthData } from "../auth/auth";
-
-const db = SQLDatabase.named("crm");
+import db from "../db";
 const fileBucket = new Bucket("crm-files");
 
 export interface FileMetadata {

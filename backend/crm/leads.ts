@@ -1,9 +1,5 @@
 import { api } from "encore.dev/api";
-import { SQLDatabase } from "encore.dev/storage/sqldb";
-
-const db = new SQLDatabase("crm", {
-  migrations: "./migrations",
-});
+import db from "../db";
 
 export interface Lead {
   id: number;
@@ -63,7 +59,6 @@ export interface DashboardMetrics {
   pending_proposals: number;
 }
 
-// Retrieves all leads with optional filtering.
 export const getLeads = api<void, LeadsResponse>(
   { expose: true, method: "GET", path: "/leads" },
   async () => {
@@ -75,7 +70,6 @@ export const getLeads = api<void, LeadsResponse>(
   }
 );
 
-// Creates a new lead.
 export const createLead = api<CreateLeadRequest, Lead>(
   { expose: true, method: "POST", path: "/leads" },
   async (req) => {
@@ -94,7 +88,6 @@ export const createLead = api<CreateLeadRequest, Lead>(
   }
 );
 
-// Updates an existing lead.
 export const updateLead = api<UpdateLeadRequest, Lead>(
   { expose: true, method: "PUT", path: "/leads/:id" },
   async (req) => {
@@ -158,7 +151,6 @@ export const updateLead = api<UpdateLeadRequest, Lead>(
   }
 );
 
-// Retrieves dashboard metrics and KPIs.
 export const getDashboardMetrics = api<void, DashboardMetrics>(
   { expose: true, method: "GET", path: "/dashboard/metrics" },
   async () => {

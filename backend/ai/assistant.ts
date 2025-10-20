@@ -1,10 +1,9 @@
 import { api, APIError } from "encore.dev/api";
-import { SQLDatabase } from "encore.dev/storage/sqldb";
 import { getAuthData } from "~encore/auth";
 import { secret } from "encore.dev/config";
 import type { AuthData } from "../auth/auth";
+import db from "../db";
 
-const db = SQLDatabase.named("crm");
 const openAIKey = secret("OpenAIToken");
 
 export interface AIQueryRequest {

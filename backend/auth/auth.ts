@@ -1,8 +1,6 @@
 import { Header, APIError, Gateway } from "encore.dev/api";
 import { authHandler } from "encore.dev/auth";
-import { SQLDatabase } from "encore.dev/storage/sqldb";
-
-const db = new SQLDatabase("crm", { migrations: "../crm/migrations" });
+import db from "../db";
 
 interface AuthParams {
   authorization?: Header<"Authorization">;
