@@ -9,7 +9,14 @@
  */
 
 import type * as auth from "../auth.js";
+import type * as bookings from "../bookings.js";
+import type * as calculator from "../calculator.js";
 import type * as http from "../http.js";
+import type * as leads from "../leads.js";
+import type * as pricingRules from "../pricingRules.js";
+import type * as quotes from "../quotes.js";
+import type * as services from "../services.js";
+import type * as ships from "../ships.js";
 
 import type {
   ApiFromModules,
@@ -27,7 +34,14 @@ import type {
  */
 declare const fullApi: ApiFromModules<{
   auth: typeof auth;
+  bookings: typeof bookings;
+  calculator: typeof calculator;
   http: typeof http;
+  leads: typeof leads;
+  pricingRules: typeof pricingRules;
+  quotes: typeof quotes;
+  services: typeof services;
+  ships: typeof ships;
 }>;
 declare const fullApiWithMounts: typeof fullApi;
 
