@@ -1,3 +1,13 @@
+## 📚 Documentation Index
+
+This implementation summary is part of the Maritime CRM documentation suite. For complete navigation, see:
+
+**[AI_AGENT_INDEX.md](./AI_AGENT_INDEX.md)** - Master documentation index
+
+This summary documents the Encore.dev implementation (v2.0.0). For the Convex migration plan, see **[AI_DEVELOPMENT_PLAYBOOK.md](./AI_DEVELOPMENT_PLAYBOOK.md)**
+
+---
+
 # Maritime Yacht Charter CRM - Implementation Summary
 
 ## Executive Summary

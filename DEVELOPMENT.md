@@ -1,3 +1,13 @@
+## 📚 Documentation Index
+
+This file is part of the Maritime CRM documentation suite. For complete navigation and AI agent guidance, see:
+
+**[AI_AGENT_INDEX.md](./AI_AGENT_INDEX.md)** - Master documentation index with navigation to all guides, migration logs, and reference materials
+
+⚠️ **Migration Notice**: This project is currently migrating from Encore.dev to Convex. See **[MIGRATION_LOG.md](./MIGRATION_LOG.md)** for current status.
+
+---
+
 # Getting Started
 
 This project consists of an Encore application. Follow the steps below to get the app running locally.
@@ -126,6 +136,3 @@ git push origin main
 - [Deployment Guide](https://encore.dev/docs/platform/deploy/deploying)
 - [GitHub Integration](https://encore.dev/docs/platform/integrations/github)
 - [Encore Cloud Dashboard](https://app.encore.dev)
-
-
-

@@ -1,0 +1,34 @@
+{
+  "mcpServers": {
+    "Convex Backend Docs": {
+      "url": "https://gitmcp.io/get-convex/convex-backend",
+      "disabled": false,
+      "autoApprove": []
+    },
+    "BetterAuth Docs": {
+      "url": "https://gitmcp.io/better-auth/better-auth",
+      "disabled": false,
+      "autoApprove": []
+    },
+    "XState Docs": {
+      "url": "https://gitmcp.io/statelyai/xstate",
+      "disabled": false,
+      "autoApprove": []
+    },
+    "Shadcn UI Docs": {
+      "url": "https://gitmcp.io/shadcn-ui/ui",
+      "disabled": false,
+      "autoApprove": []
+    },
+    "Tailwind CSS Docs": {
+      "url": "https://gitmcp.io/tailwindlabs/tailwindcss",
+      "disabled": false,
+      "autoApprove": []
+    },
+    "Next.js Docs": {
+      "url": "https://gitmcp.io/vercel/next.js",
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}

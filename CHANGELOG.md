@@ -1,3 +1,13 @@
+## 📚 Documentation Index
+
+This changelog is part of the Maritime CRM documentation suite. For complete navigation, see:
+
+**[AI_AGENT_INDEX.md](./AI_AGENT_INDEX.md)** - Master documentation index
+
+For real-time migration progress, see **[MIGRATION_LOG.md](./MIGRATION_LOG.md)**. Version 3.0.0 (Convex migration) will be documented here upon completion.
+
+---
+
 # Maritime Yacht Charter CRM - Changelog
 
 ## Version 2.0.0 - October 2025

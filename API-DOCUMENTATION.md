@@ -1,3 +1,13 @@
+## 📚 Documentation Index
+
+This API documentation is part of the Maritime CRM documentation suite. For complete navigation, see:
+
+**[AI_AGENT_INDEX.md](./AI_AGENT_INDEX.md)** - Master documentation index
+
+⚠️ **Migration Notice**: This documents the Encore.dev API. During migration to Convex, this file will be updated with new endpoint patterns. See **[MIGRATION_LOG.md](./MIGRATION_LOG.md)** for status.
+
+---
+
 # Maritime Yacht Charter CRM API Documentation
 
 ## Authentication
