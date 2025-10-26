@@ -8,14 +8,18 @@
  * @module
  */
 
+import type * as ai from "../ai.js";
 import type * as auth from "../auth.js";
 import type * as bookings from "../bookings.js";
 import type * as calculator from "../calculator.js";
+import type * as conversations from "../conversations.js";
+import type * as files from "../files.js";
 import type * as http from "../http.js";
 import type * as leads from "../leads.js";
 import type * as pricingRules from "../pricingRules.js";
 import type * as quotes from "../quotes.js";
 import type * as services from "../services.js";
+import type * as settings from "../settings.js";
 import type * as ships from "../ships.js";
 
 import type {
@@ -33,14 +37,18 @@ import type {
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  ai: typeof ai;
   auth: typeof auth;
   bookings: typeof bookings;
   calculator: typeof calculator;
+  conversations: typeof conversations;
+  files: typeof files;
   http: typeof http;
   leads: typeof leads;
   pricingRules: typeof pricingRules;
   quotes: typeof quotes;
   services: typeof services;
+  settings: typeof settings;
   ships: typeof ships;
 }>;
 declare const fullApiWithMounts: typeof fullApi;
