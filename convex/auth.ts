@@ -1,63 +1,38 @@
-import { createClient } from "@convex-dev/better-auth";
-import { convex, crossDomain } from "@convex-dev/better-auth/plugins";
-import { components } from "./_generated/api";
-import { query } from "./_generated/server";
-import { betterAuth } from "better-auth";
+import { query, QueryCtx, MutationCtx } from "./_generated/server";
 
-const siteUrl = process.env.SITE_URL!;
-
-// Component client with adapter
-export const authComponent = createClient({
-  adapter: components.betterAuth,
-});
-
-export const createAuth = (ctx: any, { optionsOnly } = { optionsOnly: false }) => {
-  return betterAuth({
-    logger: { disabled: optionsOnly },
-    trustedOrigins: [siteUrl],
-    baseURL: siteUrl,
-    database: authComponent.adapter(ctx),
-    emailAndPassword: {
-      enabled: true,
-      requireEmailVerification: false,
-    },
-    plugins: [
-      crossDomain({ siteUrl }),
-      convex(),
-    ],
-  });
-};
-
-// Get current authenticated user
+// Simple auth using Convex built-in (BetterAuth UI will be added in Phase 9)
 export const getCurrentUser = query({
   args: {},
   handler: async (ctx) => {
-    return authComponent.getAuthUser(ctx);
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) return null;
+    
+    const user = await ctx.db
+      .query("users")
+      .withIndex("by_email", (q) => q.eq("email", identity.email!))
+      .first();
+    
+    return user;
   },
 });
 
-// Helper for protected functions
-export const requireAuth = async (ctx: any) => {
-  const user = await authComponent.getAuthUser(ctx);
-  if (!user) {
-    throw new Error("Unauthorized");
-  }
+export const requireAuth = async (ctx: QueryCtx | MutationCtx) => {
+  const identity = await ctx.auth.getUserIdentity();
+  if (!identity) throw new Error("Unauthorized");
   
-  // Look up full user record with role/orgId
-  const fullUser = await ctx.db
+  const user = await ctx.db
     .query("users")
-    .withIndex("by_email", (q: any) => q.eq("email", user.email))
+    .withIndex("by_email", (q) => q.eq("email", identity.email!))
     .first();
     
-  if (!fullUser || fullUser.status !== "Active") {
+  if (!user || user.status !== "Active") {
     throw new Error("User not active");
   }
   
-  return fullUser;
+  return user;
 };
 
-// Helper for admin-only functions
-export const requireAdmin = async (ctx: any) => {
+export const requireAdmin = async (ctx: QueryCtx | MutationCtx) => {
   const user = await requireAuth(ctx);
   if (user.role !== "Admin") {
     throw new Error("Admin access required");
