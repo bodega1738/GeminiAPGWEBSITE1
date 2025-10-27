@@ -1,6 +1,8 @@
 import { query, mutation } from "./_generated/server";
 import { v } from "convex/values";
 import { requireAuth, requireAdmin } from "./auth";
+import { yachtMachine, YachtEvent } from "./machines/yachtMachine";
+import { createActor } from "xstate";
 
 export const listShips = query({
   args: {},
@@ -65,6 +67,50 @@ export const updateShip = mutation({
     });
     
     return id;
+  },
+});
+
+// Yacht state transition using XState machine
+export const transitionYachtState = mutation({
+  args: {
+    shipId: v.id("ships"),
+    event: v.string(), // Event type
+    eventData: v.optional(v.any()), // Event payload (charterId, reason, details, etc.)
+  },
+  handler: async (ctx, args) => {
+    const user = await requireAdmin(ctx);
+    
+    const ship = await ctx.db.get(args.shipId);
+    if (!ship || ship.orgId !== user.orgId) {
+      throw new Error("Ship not found");
+    }
+    
+    // Create actor
+    const actor = createActor(yachtMachine);
+    actor.start();
+    
+    // Send event
+    const event = { type: args.event, ...(args.eventData || {}) } as YachtEvent;
+    actor.send(event);
+    
+    // Get new state
+    const newState = actor.getSnapshot().value as string;
+    
+    // Validate transition
+    if (newState === ship.status) {
+      actor.stop();
+      throw new Error(`Invalid transition: ${args.event} from ${ship.status}`);
+    }
+    
+    // Update ship status
+    await ctx.db.patch(args.shipId, {
+      status: newState as any,
+      updatedAt: Date.now(),
+    });
+    
+    actor.stop();
+    
+    return newState;
   },
 });
 

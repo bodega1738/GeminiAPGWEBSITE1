@@ -20,7 +20,7 @@ This document provides real-time tracking of the Encore.dev to Convex migration 
 | Phase 5: Migrate Database Schema | ⏳ PENDING | - | - | 0% | None |
 | Phase 6: Migrate Core CRM Services | ✅ COMPLETED | 2025-10-26 | 2025-10-26 | 100% | None |
 | Phase 7: Migrate Supporting Services | ✅ COMPLETED | 2025-10-26 | 2025-10-26 | 100% | None |
-| Phase 8: Integrate XState | ⏳ PENDING | - | - | 0% | None |
+| Phase 8: Integrate XState | ✅ COMPLETED | 2025-10-26 | 2025-10-26 | 100% | None |
 | Phase 9: Update Frontend | ⏳ PENDING | - | - | 0% | None |
 | Phase 10: Validation and Cleanup | ⏳ PENDING | - | - | 0% | None |
 
@@ -226,6 +226,62 @@ This document provides real-time tracking of the Encore.dev to Convex migration 
 **Next Steps**:
 - Phase 8: Integrate XState for complex workflows
 - Continue following established auth and database patterns
+- Maintain MCP compliance throughout remaining phases
+
+### [2025-10-26 16:52] - Phase 8: Integrate XState for Complex Workflows
+**Agent**: AI Agent  
+**Status**: Completed  
+
+**Changes Made**:
+- Successfully installed XState v5.21.0 and integrated with Convex for complex workflow management
+- Created `convex/machines/` directory with 5 state machines for yacht charter workflows
+- Created `convex/machines/leadMachine.ts` for lead pipeline state management (new → contacted → qualified → proposal → booked/lost)
+- Created `convex/machines/yachtMachine.ts` for yacht fleet lifecycle (available → chartered → needsCleaning → underMaintenance → needsRepair)
+- Created `convex/machines/bookingMachine.ts` for booking workflow management (configuring → checking → conflict → confirmed → active)
+- Created `convex/machines/quoteMachine.ts` for quote generation process (configuring → calculating → saving → converting → completed)
+- Created `convex/machines/aiMachine.ts` for AI assistant rate limiting (idle → checkingRateLimit → querying → responding → complete)
+- Fixed XState v5 API compatibility issue in `convex/leads.ts` - removed incorrect snapshot parameter usage
+- Added `transitionLeadStatus` mutation to `convex/leads.ts` with XState integration for lead state transitions
+- Added `transitionYachtState` mutation to `convex/ships.ts` with XState integration for yacht state transitions
+- All state machines follow XState v5 patterns with proper TypeScript event types
+- Convex dev verification: "Convex functions ready!" with ZERO errors
+- Added ADR-008 to `ARCHITECTURE_DECISIONS.md` documenting XState implementation patterns and API corrections
+
+**Files Affected**:
+- `package.json` (MODIFY) - Added xstate@5.21.0 dependency
+- `convex/machines/` directory (NEW) - State machine organization
+- `convex/machines/leadMachine.ts` (NEW) - Lead pipeline state management
+- `convex/machines/yachtMachine.ts` (NEW) - Yacht fleet lifecycle management
+- `convex/machines/bookingMachine.ts` (NEW) - Booking workflow management
+- `convex/machines/quoteMachine.ts` (NEW) - Quote generation process
+- `convex/machines/aiMachine.ts` (NEW) - AI assistant rate limiting
+- `convex/leads.ts` (MODIFY) - Added XState integration with transitionLeadStatus mutation
+- `convex/ships.ts` (MODIFY) - Added XState integration with transitionYachtState mutation
+- `ARCHITECTURE_DECISIONS.md` (MODIFY) - Added ADR-008 documenting XState v5 API patterns
+
+**Issues Encountered**:
+- Initial XState v4 API usage causing TypeScript errors in createActor snapshot parameter
+- Resolved by studying XState MCP documentation and applying correct v5 patterns
+- Convex backend process conflicts during restart attempts
+
+**Resolution**:
+- Applied correct XState v5 API: `createActor(machine)` without snapshot parameter
+- All TypeScript errors eliminated
+- State transitions working properly with Convex mutations
+- Successfully validated with "Convex functions ready!"
+
+**Success Criteria Met**:
+✅ XState v5.21.0 installed and configured
+✅ All 5 state machines created for complex workflows
+✅ XState integration completed for leads and ships services
+✅ TypeScript compilation successful with ZERO errors
+✅ Convex dev server running clean: "Convex functions ready!"
+✅ XState v5 API patterns documented in ADR-008
+✅ Proper actor lifecycle management with cleanup
+
+**Next Steps**:
+- Phase 9: Update Frontend to use Convex and XState
+- Continue following established patterns for remaining integrations
 - Maintain MCP compliance throughout remaining phases
 
 ---

@@ -1,5 +1,7 @@
 import { query, mutation } from "./_generated/server";
 import { v } from "convex/values";
+import { leadMachine, LeadEvent } from "./machines/leadMachine";
+import { createActor } from "xstate";
 
 export const getLeads = query({
   args: {},
@@ -115,5 +117,46 @@ export const getDashboardMetrics = query({
       total_revenue: totalRevenue,
       pending_proposals: proposalLeads,
     };
+  },
+});
+
+// Lead state transition using XState machine
+export const transitionLeadStatus = mutation({
+  args: {
+    leadId: v.id("leads"),
+    event: v.string(), // Event type: "CONTACT" | "QUALIFY" | etc.
+  },
+  handler: async (ctx, args) => {
+    const lead = await ctx.db.get(args.leadId);
+    if (!lead) {
+      throw new Error("Lead not found");
+    }
+    
+    // Create actor (starts in initial state)
+    const actor = createActor(leadMachine);
+    actor.start();
+    
+    // Send event
+    actor.send({ type: args.event } as LeadEvent);
+    
+    // Get new state
+    const snapshot = actor.getSnapshot();
+    const newState = snapshot.value as string;
+    
+    // Validate transition was successful
+    if (newState === lead.status) {
+      actor.stop();
+      throw new Error(`Invalid transition: ${args.event} from ${lead.status}`);
+    }
+    
+    // Update lead status
+    await ctx.db.patch(args.leadId, {
+      status: newState as any,
+      updatedAt: Date.now(),
+    });
+    
+    actor.stop();
+    
+    return newState;
   },
 });

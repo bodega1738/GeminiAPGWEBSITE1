@@ -1,0 +1,155 @@
+# pack-refs with: peeled fully-peeled sorted 
+414309ccc2b8ee37bba8f1be606ed0b9cc610eef refs/remotes/origin/420-failed-api-calls-should-not-be-failures-not-errors
+884c0e66eee260e1bbd58e1470311d66764a2bc5 refs/remotes/origin/SamMorrowDrums-patch-1
+accc8851ce3a42dcfeb4a7a56386af18b4fd093a refs/remotes/origin/SamMorrowDrums-patch-2
+ce0ab9cb992de75934d485b735b16c93ab7762d5 refs/remotes/origin/actions-consolidated
+0326014be7860cc7bc34610807f9f6fdee8f4d8d refs/remotes/origin/actions-improvements
+81547f4e608105ad814542138e220da8c0724172 refs/remotes/origin/add-discussions-support
+e5d69a5188d60bf78a54d1568909f3bbd6d3755d refs/remotes/origin/add-server-instructions
+89e3afdb4b0dabd2e0d440c3f01a7a2fbbdb33a3 refs/remotes/origin/albarry-mcp
+9bacf8f34a49f9afae55694b2842e63c59c1ac16 refs/remotes/origin/albarry4-patch-1
+3602721234f9962e66bddcd3d9ee77b2185e5a66 refs/remotes/origin/albarrymcp
+40a27642956c0e5a49268736dd6a819aa20d7018 refs/remotes/origin/build-arg-syntax
+23b16cfeb7ddcd6b7f59ade7f441777af5b1f76c refs/remotes/origin/categorise-error-types-in-monitors
+fe63b685674f11da73607d673f0a5812d6489792 refs/remotes/origin/completions-test
+d225fb42594f5b1c7c1e9826c438a8cb788218f8 refs/remotes/origin/connor4312-patch-1
+2e27e2aca3695fd67634208c2c351dce14688376 refs/remotes/origin/copilot/fix-415
+aef945676609b43755c280da31bdd084051646b1 refs/remotes/origin/copilot/fix-422
+b34ec6f5135eb211f4c50590c10fbc6febb9afe8 refs/remotes/origin/copilot/fix-427
+ace68dc649984bca53b1425bd4832dba110841a6 refs/remotes/origin/copilot/fix-4f46a350-e2fd-4df9-8f65-7f40b2ccc6b6
+cb96df82ca033a24b264ed2456d1e083a314290e refs/remotes/origin/copilot/fix-70f37556-44a9-4a71-b571-f0bc8def7445
+e2d0d03e2035e0afe557cac7a7316ba91d12a11c refs/remotes/origin/copilot/fix-778
+0b68f666745611f1f2c0eacdeec87f09bf338fb4 refs/remotes/origin/copilot/fix-92c45855-cc9f-4e87-94bf-29e431e35b66
+3553c37541868af7b0e0a93f2149ee2968f43445 refs/remotes/origin/copilot/fix-a2b1f4f4-755c-4d7d-93e9-2f59d0a26a23
+2b43ef4ed62c30fc060a51b6be1e0f4c0ccbb556 refs/remotes/origin/copilot/fix-ea153838-7dae-4f12-b386-f14a07b8838b
+f8f5efab3bcd847f0c98b6d4c64270aa93e50efb refs/remotes/origin/copilot/fix-fd5fc292-e634-4bd7-b9a1-bea9124c934b
+3fc883a53dbd49f04828f67ce167998f87d477c0 refs/remotes/origin/dependabot/go_modules/github.com/mark3labs/mcp-go-0.40.0
+8f11903a2ea8979c47c0b5f8701efb61eaeea9de refs/remotes/origin/dependabot/go_modules/github.com/spf13/viper-1.21.0
+eb0beb4d760e4cd0cf32a0259074be078a654444 refs/remotes/origin/digitarald-installer
+e01477937474264972d2e15c19681fece6129eaf refs/remotes/origin/discussions-tooling
+362870f7c63fd64cc311e3360a55fba7d773331b refs/remotes/origin/docker-publish
+1d90e3351c42dcf066428098a7ea267533742569 refs/remotes/origin/dockerfile-with-shell
+e6e4a211bd862028d4606d6a3d2b5146ddc882a4 refs/remotes/origin/enable-secret-protection
+4be10ae7f0fb3f5e2418dcd20f3513869dc661d8 refs/remotes/origin/enterprise
+e7ac4b08c4a2dc8e124875ef300e5e62fc4e77cc refs/remotes/origin/feat/sub-issues
+064f1056d3b102bd4f34b64fe4149a509e76747e refs/remotes/origin/fix-790-separate-issues-from-prs
+02ef88d8f5ee1d0cdd96985eb31137c79ac88095 refs/remotes/origin/full-go-version
+5699338b559758129a4435923c3af8b83296e257 refs/remotes/origin/go-releaser
+bc83181c14ac7e970f392aa4ab3388802e5c84b8 refs/remotes/origin/go-run-config
+aa9623c2cab3e18d32bf6750d2ef44eee2855745 refs/remotes/origin/http-sse
+689191ec94fa6876176764f523b827a8f1cb4570 refs/remotes/origin/installation-README
+82caadb029f9431cf3ae10e6c986455b0d31f020 refs/remotes/origin/juruen/catch-panic
+9e515481d73c3c685c7d107db2169e165a191e87 refs/remotes/origin/juruen/create-pr
+eec932cd5684b6143fe90b9477ae2535cb992715 refs/remotes/origin/juruen/create-pr-review-tool
+ac26b7d3d9f8d43231f555579502f3b679e55a9c refs/remotes/origin/juruen/docker-platforms
+39ff8409216be5499cc97952f45f5e5144d30432 refs/remotes/origin/juruen/experimental-version-check
+4286af8b56c505862f6a381868547bcea5862156 refs/remotes/origin/juruen/fix-array-schemas
+bb9f2b8e731e702640fee5515e2b729aabc36fcf refs/remotes/origin/juruen/fix-log-file
+6d6377795612490655b4040e3859e8d49a1f444c refs/remotes/origin/juruen/iologging
+70f23781a91a2f5fae34e8018d7ace3a7754aade refs/remotes/origin/juruen/lint
+e75e06e6dc006b73fb5567745747750a1db66ff6 refs/remotes/origin/juruen/update-readme
+3c6467ffef6b2493d69533d34776d5cdd97b65ce refs/remotes/origin/juruen/validate-params
+44f5e8bfaaf3fd7613d8ecdf59df014e85b65cdb refs/remotes/origin/jww3-patch-2
+4acdecc47098308e2a7d5baeaf2f6d03b327a7f3 refs/remotes/origin/licences
+9fd04e711dceb2ba247f6f239a5b9577581581f8 refs/remotes/origin/luke-engle/coffe-testing
+d13ca17edef319ef9c73ee7935637c11ebc11d95 refs/remotes/origin/lumaxis/add-tool-issue-closing-pr
+5e5e80ac4cf3bbde93946234e530b4f0211833c6 refs/remotes/origin/main
+81f093e7be6c95f38530f7cf36188f425b4a33ca refs/remotes/origin/martinajir-list-notifications
+fda4c7b3949f92a0a3efe42d9481ea4531421e04 refs/remotes/origin/matt/registry-pipeline-version-change
+9e8d8b4d2bdddbbed1d5c46c181625249fe5467f refs/remotes/origin/natagdunbar/add-repo-nav-tool
+3deaca89fd0ae3989e585a003b069f31ba5dbe6d refs/remotes/origin/next
+2cece8f979aa4d08dc34077dbf6b8b45c31ea194 refs/remotes/origin/o1-mise-instructions-update
+e0943f729edce8598948b149d139d267dca62839 refs/remotes/origin/o1-update-readme-mise-instructions
+b2faa1c37f6633ca43ec5ff4ea8115f076baf801 refs/remotes/origin/pre-minimal-changes
+332b3602924658e3850fd7f9ad3ba66e9902811f refs/remotes/origin/raw-repo-resources
+76766b7d582ae4329fb81282fb9d53c850a03416 refs/remotes/origin/read-only
+847d647849e9a3bd1b00b88359587542b0cbb9f3 refs/remotes/origin/registry/update-server-version
+9d5ca87b5d9281aaa7fb3c25709e29ab52191df7 refs/remotes/origin/remove-deprocated-func
+7e8e73024e067018380d4b618b73f1d233090d2c refs/remotes/origin/repo-resource
+ede9f22fb02653744653de3a50abd36047747d18 refs/remotes/origin/repository_resource_tests
+a5550e434af8ccb4914ef1d83c1a91f681e8efef refs/remotes/origin/rfearing/minimize-new-tooling
+3e948c98697ceda63beb1cb8b177c7d625d5e772 refs/remotes/origin/rubiojr/prompt-support
+4489c3bbdce7c0c02b0a5ae59ad8710aaee64307 refs/remotes/origin/schema-fix
+e7d9263d859912a06920164808c77bdf9c009e87 refs/remotes/origin/sdk-0.37.0-upgrade
+247953072822453d355c151c001742e8ffe0c409 refs/remotes/origin/set-build-arg
+a5a9a26ee063606c0f64fd5997fcec3dd8e53b4b refs/remotes/origin/stephenotalora/mcp-server-latest-api-updates
+2036c8b2e9c5bbf60e28b1d42a1d12f0c30066c3 refs/remotes/origin/templates
+500425f0df58934bc4ff7f27b452117226da72ae refs/remotes/origin/tjgurwara99/secret-scanning-mcp
+4552edefa06d39442a6715a65c933704cf7225c2 refs/remotes/origin/tmelliottjr/update-project-prompts
+b8c3e1138e8c18da42bd5b42b2adddc93a68c78e refs/remotes/origin/tommy-read-write-tools-exploration
+91034640103b8447f198c45ecd453eb02fe5651d refs/remotes/origin/tommy/custom-tools-configuration
+a1f9053ba75e70a55ec3e1a8066043837377fd0c refs/remotes/origin/tommy/readme-update
+36688fdec739529925cc9e44f32244990dd6e235 refs/remotes/origin/tommy/server-instructions
+53dde14de0fbc1499b02f41b897986ea629be72a refs/remotes/origin/tommy/update-readme
+b121af559e807653f8e0bf6a1f0663167abb30d3 refs/remotes/origin/tonytrg-patch-1
+e6ec2f0ac4a08239cd53cb57c7cd82482cd779ff refs/remotes/origin/tonytrg-repos-consolidation
+4d2a1bbe7a543c87598de604ef590c3f0073eab5 refs/remotes/origin/tonytrg/add-gemini-extension
+ac896261ae84c8e4ec13706b183b2a2ae229f546 refs/remotes/origin/tonytrg/add-repos-consolidation
+d7bf6f588d805cb0b8134ec4cb8f12d31d7aa435 refs/remotes/origin/tonytrg/define-default-toolsets
+910d685f1802f02fd42fe69dcdecb4ef9533aa32 refs/remotes/origin/tonytrg/labels
+699b97c8d7a5be1379687a6d59517cfa5dc44804 refs/remotes/origin/tonytrg/labels-baseline
+59c2ff08dc2e764ce4f08ab4c84bc6b797dbf938 refs/remotes/origin/tonytrg/surface-raw-api-error
+f70bbc62415f20bfd26d7a4bc642d4d65dd23492 refs/remotes/origin/tonytrg/test
+b752bb4628374dc736c0acfb4d8b61960c938f70 refs/remotes/origin/tonytrg/update-gitignore
+8428c56d987f832d045a2b0cd0f02d73f316b3d8 refs/remotes/origin/update-deps
+a92c00e0d249f6f4aea9dd9ee2036d27c650eadf refs/remotes/origin/use-resource-link
+ca17833a07a00465beec7ad001686f7f4c1f401b refs/remotes/origin/vscode-config-json
+c6750c54c28a47901b0dad5fc2ff09d7e432cef1 refs/remotes/origin/wm/add-api-request-logging
+7a8e2db02caa5f86968cbcb24eba63fc1b5c0d14 refs/remotes/origin/wm/conformance-test
+2ce83d011ba20fa4ab1cf36d8487c7d892cc9ff4 refs/remotes/origin/wm/copilot-reviewer
+b86afc8ea4ad1d9a97228f6cacce16f79ecea55b refs/remotes/origin/wm/fix-viper-config
+1a23af09619ae3701fe1c9efd9105615087584f7 refs/remotes/origin/wm/in-process-stdio
+7939297f36823f0831b93530db947b97c30331cb refs/remotes/origin/wm/pagination-helper
+4df2d3d8035bae8af77bc371c1e9517e6a9e611f refs/remotes/origin/wm/readme-generation
+d978bc187b08ddc3ac3d1ebaa10d14562fabf8fe refs/remotes/origin/wm/support-localhost-hosts
+575acd2028c10de2ef042fa67e793c6bb47ed991 refs/remotes/origin/workflow-templates-server-instructions
+66dc385ee4ded89737cd2bbf236d6e62877ce4df refs/tags/latest-release
+^c01959536b5a53d19ba0e8ebbaadbb20e253532d
+b89336793c5bc9b9abdd5100d876babbc1031f5d refs/tags/v0.1.0
+87d4407d1c3dd12eacf9f134534f44d016fd363c refs/tags/v0.1.0-rc.1
+6f7458ae3c97f15b3e6676e7565082a1dfd98e75 refs/tags/v0.1.0-rc.2
+6e132eb067d1b3fb97d1ff4b0220087babe01b17 refs/tags/v0.1.0-rc.3
+7ab5d968e065f13a660cd123c2c5d0be6d8b6dbd refs/tags/v0.1.1
+923e1b065d7158d08cfceecc2466b99af17a6e2f refs/tags/v0.1.1-release-validation
+df079e94b792ba083c827ab5b64710bc1dcae293 refs/tags/v0.10.0
+^45e90aedd4445e0e61ead8cb165b45cc8e249f1e
+4b2f5d31e4b6010313ed6ca747f77ba851b5498f refs/tags/v0.11.0
+^8aa3379feacb388289379d27b27692e91dd3c2ed
+edd9bd5482f9e4204a8bb82dddf58d8850b3fdb8 refs/tags/v0.12.0
+^587272bc33a35bbfda091916d2de533e95abdfd8
+a2297e90ea0569d30dc0f42b9956a6eb188acc79 refs/tags/v0.12.1
+^587272bc33a35bbfda091916d2de533e95abdfd8
+c9203f8c60eb953c25a4b7b1eb4b4b4daa3ce364 refs/tags/v0.13.0
+^0418808647d2de927e73a4236d1e9895414a0062
+90c7d16d73a5b125f9d1fec6ffadd5b19af73e9d refs/tags/v0.14.0
+^09deac45d4f0bf00d8d78d41334267a594f92935
+38e13efec5fcb2f0d5f0d4691123cdd70be44689 refs/tags/v0.15.0
+^010cf9b33a23d531194da91f54818b7c052b93d0
+215a991b4490d9a188cd2098bc8161a90d5cd93d refs/tags/v0.16.0
+^35b0da2495bc7f707bb87190da53a58b3cdac251
+cc50121c982a3faba96c3114e7cc7f6dd8199127 refs/tags/v0.17.0
+^6793b9d376c467774133601088d304ea19998936
+9545e683e9f2f9d50040e614f25531a0180b4031 refs/tags/v0.17.1
+^23fa0dd1a821d1346c1de2abafe7327d26981606
+ceaf27bdf2492595760e90915f6fd3ca6d2a22ce refs/tags/v0.18.0
+^f9343e62fd825d77ff741c7909016c461402783b
+669059330b9cd9ba2d4424fd895f3c40d7354dec refs/tags/v0.19.0
+^11c3d709c23e9a4e33d02fdc7602d95f20406b65
+66dc385ee4ded89737cd2bbf236d6e62877ce4df refs/tags/v0.19.1
+^c01959536b5a53d19ba0e8ebbaadbb20e253532d
+0a0873fd50231766eeb025f175041bd886264752 refs/tags/v0.19.1-test
+89914364974088cda9bec4fd559afaf1123e462f refs/tags/v0.2.0
+9fa582d8d63522d70ce8f3af58265effb9645323 refs/tags/v0.2.1
+7aced2b0a16d18a441d6bbf33e6487f7c042df6e refs/tags/v0.3.0
+e9f748f246761fb0769e2a5611003939a6274872 refs/tags/v0.4.0
+6d6979749de45c0c0397a666c8d3d7b7e51ce2af refs/tags/v0.5.0
+8a24b66d160229f6e903029a94cbdbf30cf47f8f refs/tags/v0.6.0
+^721fd3e3c8a745d4b6147749dc606a05ebf9dbfc
+3251c02dddf1cd675a3c6f86beeaba9504f93048 refs/tags/v0.7.0
+^42e5ce9b88ee289bb8d7a297c1d8a580e06c9e86
+10723610cd357c488fc4b39423705502a395f64f refs/tags/v0.8.0
+^b5e33481793a6dbca5cf688ddf391ad410042d63
+35d2691644307ceffd778555f95ab302214d5fc4 refs/tags/v0.9.0
+^efef8ae27a1d62c38c8f760ca38a65845efd3576
+18e30955ec89336738e6d064797437cb327c747a refs/tags/v0.9.1
+^efef8ae27a1d62c38c8f760ca38a65845efd3576

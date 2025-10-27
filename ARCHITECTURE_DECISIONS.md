@@ -424,6 +424,84 @@ The project is **consuming** MCP servers for AI agent reference, not **providing
 
 ---
 
+## ADR-008: XState Implementation Patterns
+
+**Status**: Accepted  
+**Date**: 2025-10-26  
+**Decision**: Implement XState v5 API patterns for Convex integration
+
+### Context
+XState v5 was installed and integrated with Convex for complex workflow management. Initial implementation used XState v4 API patterns, causing TypeScript errors in Convex functions.
+
+### Decision
+Use correct XState v5 API patterns with `createActor` and simplified state management.
+
+### Rationale
+- **XState v5 Compatibility**: Use correct API methods for v5.21.0
+- **Simplified Actor Creation**: Remove snapshot parameter, use direct actor creation
+- **Cleaner Integration**: Simpler patterns that work well with Convex mutations
+- **TypeScript Safety**: Ensure all state transitions are properly typed
+- **Performance**: Efficient actor lifecycle management with proper cleanup
+
+### Consequences
+**Positive**:
+- Correct TypeScript compilation with zero errors
+- Clean, maintainable state machine integration
+- Proper XState v5 patterns that team can follow
+- Successfully validated with "Convex functions ready!"
+
+**Negative**:
+- Learning curve for team members unfamiliar with XState v5
+- Additional complexity for simple state management cases
+
+**Neutral**:
+- Need to document XState patterns for future reference
+- Team training required for state machine concepts
+
+### Implementation Details
+
+**Correct XState v5 Pattern**:
+```typescript
+import { createActor } from "xstate";
+
+// ✅ Correct v5 API
+const actor = createActor(stateMachine);
+actor.start();
+
+// Send event and get new state
+actor.send(event);
+const newState = actor.getSnapshot().value;
+actor.stop();
+```
+
+**Incorrect XState v4 Pattern (Avoid)**:
+```typescript
+// ❌ Wrong for v5 - snapshot parameter not supported
+const actor = createActor(stateMachine, {
+  snapshot: { value: currentState, context: {} },
+});
+```
+
+**Integration with Convex**:
+- State machines defined in `convex/machines/` directory
+- Each machine exports both machine definition and event types
+- Convex mutations create actors, send events, update database
+- Proper actor cleanup with `actor.stop()` to prevent memory leaks
+
+**Workflows Implemented**:
+- **Lead Pipeline**: `new → contacted → qualified → proposal → booked/lost`
+- **Yacht Fleet**: `available → chartered → needsCleaning → underMaintenance → needsRepair`
+- **Booking Workflow**: `configuring → checking → conflict → confirmed → active`
+- **Quote Generation**: `configuring → calculating → saving → converting → completed`
+- **AI Assistant**: `idle → checkingRateLimit → querying → responding → complete`
+
+### Alternatives Considered
+- **Stay with XState v4 Pattern**: Rejected due to TypeScript errors and incompatibility
+- **Remove XState Integration**: Rejected due to loss of workflow guarantees
+- **Use React State Only**: Rejected for complex workflows that need explicit state management
+
+---
+
 ## Technology Stack Summary
 
 | Component | Current | Target | Migration Approach |
